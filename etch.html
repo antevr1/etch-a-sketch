@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch A Sketch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container"></div>
+    <button class="create">Create Divs</button>
+</body>
+    <script>
+        let create = document.querySelector('.create');
+        let container = document.querySelector('.container');
+        let miniDiv = '';
+        
+        function deleteDivs(){
+            container.innerHTML = '';
+        }
+        function createDivs(x){
+            deleteDivs();
+            for(let i = 0; i < x; i++){
+                for(let j = 0; j < x; j++){
+
+                    let miniDiv = document.createElement('div');
+                    let size = 500/x;
+
+                    miniDiv.addEventListener('mouseup', () =>{
+                    miniDiv.style.background = 'green';
+                });
+
+                    miniDiv.className = 'minidiv';
+                    miniDiv.style.width = size + "px";
+                    miniDiv.style.height = size + "px";
+
+                    container.appendChild(miniDiv);
+                    console.log('i have created');
+                }
+            }
+            
+        };
+
+        create.addEventListener('click', () => {
+            let num = Number(window.prompt("Unesi broj"));
+            createDivs(num);
+        });
+
+        
+    </script>
+</html>
